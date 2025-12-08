@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>🎬 Top Movies in Theaters This Week</h1>
+</div>
+
+<div class="movie-grid fade-in">
+    {% for movie in movies %}
+    <div class="movie-card">
+        <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}">
+
+        <div class="movie-title">{{ movie.title }}</div>
+        <div class="movie-date">{{ movie.release_date }}</div>
+
+        <a class="btn"
+           href="/selected_movie?title={{ movie.title | urlencode }}
+           &release_date={{ movie.release_date }}
+           &tmdb_id={{ movie.id }}
+           &poster_path={{ movie.poster_path | urlencode }}">
+            More Info
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Atlas</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a class="logo" href="/">🎬 Movie Atlas</a>
+        </div>
+
+        <div class="nav-right">
+            <a href="/">Home</a>
+            <a href="/favorite_movies">Favorites</a>   <!-- FIX: your route is /favorite_movies -->
+            <a href="/ai_helper">AI Helper</a>
+        </div>
+    </nav>
+
+    <!-- MAIN PAGE WRAPPER -->
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>Movie Atlas • Built using TMDB, OMDb, & YouTube APIs</p>
+    </footer>
+
+</body>
+</html>
